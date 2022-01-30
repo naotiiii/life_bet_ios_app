@@ -1,0 +1,6 @@
+framework module Pods_life_bet {
+  umbrella header "Pods-life-bet-umbrella.h"
+
+  export *
+  module * { export * }
+}
