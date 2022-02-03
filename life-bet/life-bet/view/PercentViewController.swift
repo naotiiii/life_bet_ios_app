@@ -7,15 +7,35 @@
 
 import UIKit
 
-class PercentViewController: UIViewController {
+/// 確率画面
+class PercentViewController: BaseViewController {
 
+    // MARK: - @IBOutlet
+    
+    /// 回る時の ImageView
+    @IBOutlet weak var turnImageView: UIImageView!
+    
+    /// 回す Button
+    @IBOutlet weak var turnButton: UIButton!
+    
+    
+    // MARK: - override func
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        
     }
     
+    // MARK: - @IBOutlet
+    /// 回すボタンタップ処理
+    /// ボタン内で、指が離れた
+    @IBAction func touchUpInsideTurnButton(_ sender: UIButton) {
+        
 
-   
+    }
+    
+    /// ボタンに指が触れたら発生
+    @IBAction func touchDownTurnButton(_ sender: UIButton) {
 
+    }
 }

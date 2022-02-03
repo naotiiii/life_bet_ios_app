@@ -19,6 +19,8 @@
 		0A85A233279EDF8300BE758C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85A232279EDF8300BE758C /* BaseViewController.swift */; };
 		0A85A236279EE14800BE758C /* CommonWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85A235279EE14800BE758C /* CommonWords.swift */; };
 		0A85A23A27A6B40500BE758C /* PercentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85A23927A6B40500BE758C /* PercentViewController.swift */; };
+		0A85A23D27AC072500BE758C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85A23C27AC072500BE758C /* UIColor+.swift */; };
+		0A85A23F27AC0DCD00BE758C /* NumberDecideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85A23E27AC0DCC00BE758C /* NumberDecideViewController.swift */; };
 		34B2A78FB3F60D1CE96EAC6C /* Pods_life_bet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524CCBBD39F444A1723DD668 /* Pods_life_bet.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		0A85A232279EDF8300BE758C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		0A85A235279EE14800BE758C /* CommonWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWords.swift; sourceTree = "<group>"; };
 		0A85A23927A6B40500BE758C /* PercentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentViewController.swift; sourceTree = "<group>"; };
+		0A85A23C27AC072500BE758C /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		0A85A23E27AC0DCC00BE758C /* NumberDecideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberDecideViewController.swift; sourceTree = "<group>"; };
 		524CCBBD39F444A1723DD668 /* Pods_life_bet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_life_bet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD2E91D82DD7402CD4BC666 /* Pods-life-bet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-life-bet.release.xcconfig"; path = "Target Support Files/Pods-life-bet/Pods-life-bet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +116,7 @@
 		0A85A201279EDE1900BE758C /* life-bet */ = {
 			isa = PBXGroup;
 			children = (
+				0A85A23B27AC070400BE758C /* Extension */,
 				0A85A238279EE5CF00BE758C /* storyBoard */,
 				0A85A237279EE5B000BE758C /* view */,
 				0A85A234279EE12700BE758C /* common */,
@@ -155,6 +160,7 @@
 				0A85A232279EDF8300BE758C /* BaseViewController.swift */,
 				0A85A206279EDE1900BE758C /* MainViewController.swift */,
 				0A85A23927A6B40500BE758C /* PercentViewController.swift */,
+				0A85A23E27AC0DCC00BE758C /* NumberDecideViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -165,6 +171,14 @@
 				0A85A208279EDE1900BE758C /* Main.storyboard */,
 			);
 			path = storyBoard;
+			sourceTree = "<group>";
+		};
+		0A85A23B27AC070400BE758C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0A85A23C27AC072500BE758C /* UIColor+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		7AC12DA2787788CDF0086F3A /* Frameworks */ = {
@@ -361,10 +375,12 @@
 			files = (
 				0A85A207279EDE1900BE758C /* MainViewController.swift in Sources */,
 				0A85A233279EDF8300BE758C /* BaseViewController.swift in Sources */,
+				0A85A23F27AC0DCD00BE758C /* NumberDecideViewController.swift in Sources */,
 				0A85A23A27A6B40500BE758C /* PercentViewController.swift in Sources */,
 				0A85A203279EDE1900BE758C /* AppDelegate.swift in Sources */,
 				0A85A205279EDE1900BE758C /* SceneDelegate.swift in Sources */,
 				0A85A236279EE14800BE758C /* CommonWords.swift in Sources */,
+				0A85A23D27AC072500BE758C /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,16 +563,20 @@
 				DEVELOPMENT_TEAM = G89WYP7829;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "life-bet/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Life Bets";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "表示される広告の最適化のために使用します。";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.life-bet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -576,16 +596,20 @@
 				DEVELOPMENT_TEAM = G89WYP7829;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "life-bet/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Life Bets";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "表示される広告の最適化のために使用します。";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.life-bet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;

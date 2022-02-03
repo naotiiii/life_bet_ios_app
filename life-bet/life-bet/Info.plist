@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>表示される広告の最適化のために使用します。</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-8858591747711781~4555217328</string>
 	<key>SKAdNetworkItems</key>
@@ -36,5 +34,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDarkContent</string>
 </dict>
 </plist>

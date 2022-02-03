@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dAw-js-eRp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -33,6 +34,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="確率"/>
                                 <connections>
+                                    <action selector="onPercentButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HgY-uG-tSp"/>
                                     <segue destination="eKY-b3-NLp" kind="show" identifier="segue_percent" id="uNu-hF-DB6"/>
                                 </connections>
                             </button>
@@ -45,12 +47,13 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="抽選"/>
                                 <connections>
+                                    <action selector="onLotteryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4WH-uZ-g4P"/>
                                     <segue destination="1Ip-nd-BqP" kind="show" identifier="segue_lottery" id="YnI-kZ-pyz"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="0.095429158133596273" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="7D1-fL-n1I" firstAttribute="top" secondItem="uVs-sN-zsz" secondAttribute="bottom" constant="70" id="3ab-eY-y33"/>
                             <constraint firstItem="MGf-QV-IXA" firstAttribute="top" secondItem="7D1-fL-n1I" secondAttribute="bottom" constant="70" id="IRb-NY-zQ0"/>
@@ -88,6 +91,10 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="回す"/>
+                                <connections>
+                                    <action selector="touchDownTurnButton:" destination="eKY-b3-NLp" eventType="touchUpInside" id="xR8-gq-EfQ"/>
+                                    <action selector="touchUpInsideTurnButton:" destination="eKY-b3-NLp" eventType="touchUpInside" id="UDd-oe-T3o"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3qz-pm-zyF">
                                 <rect key="frame" x="0.0" y="138" width="414" height="300"/>
@@ -97,7 +104,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kQh-tR-ZBv"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="3qz-pm-zyF" firstAttribute="leading" secondItem="kQh-tR-ZBv" secondAttribute="leading" id="2B8-LY-AnB"/>
                             <constraint firstItem="VvM-VS-ogi" firstAttribute="top" secondItem="3qz-pm-zyF" secondAttribute="bottom" constant="100" id="8kV-cE-Ioy"/>
@@ -107,6 +114,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Life Bet" id="D3x-b3-YKA"/>
+                    <connections>
+                        <outlet property="turnButton" destination="VvM-VS-ogi" id="jhR-vY-VV4"/>
+                        <outlet property="turnImageView" destination="3qz-pm-zyF" id="gbB-ID-nXZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lj6-1R-PaB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -115,7 +126,7 @@
         <!--Life Bet-->
         <scene sceneID="5YA-eF-Eks">
             <objects>
-                <viewController id="1Ip-nd-BqP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NumberDecideViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Ip-nd-BqP" customClass="NumberDecideViewController" customModule="life_bet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3E9-TB-8Ay">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,7 +190,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i2r-RL-jFS"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.074509803921568626" green="0.074509803921568626" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="i2r-RL-jFS" firstAttribute="trailing" secondItem="e9S-OP-rzC" secondAttribute="trailing" id="HHj-QI-ojT"/>
                             <constraint firstItem="hxJ-Hk-9OL" firstAttribute="centerX" secondItem="3E9-TB-8Ay" secondAttribute="centerX" id="Vmh-eq-pKj"/>
@@ -189,6 +200,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Life Bet" id="eGH-Ib-GJi"/>
+                    <connections>
+                        <outlet property="hundredNumberLabel" destination="Pjt-VF-yiY" id="Ooa-XQ-Fmr"/>
+                        <outlet property="oneNumberLabel" destination="T8e-FK-AO2" id="doE-OD-Y0T"/>
+                        <outlet property="tenNumberLabel" destination="L1N-xN-JsH" id="fsr-tQ-Akq"/>
+                        <outlet property="thousandNumberLabel" destination="Iho-0C-YSz" id="VS8-Pg-pDM"/>
+                        <outlet property="turnButton" destination="hxJ-Hk-9OL" id="cIO-0O-8Uo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmX-bT-6jT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// MainViewContorller
 class MainViewController: BaseViewController {
 
     
@@ -20,7 +21,7 @@ class MainViewController: BaseViewController {
     // 入力値
     var number: String?
     
-    // MARK: - func
+    // MARK: - override func
     override func viewDidLoad() {
         super.viewDidLoad()
        // self.setBottomBannerView()
@@ -31,52 +32,31 @@ class MainViewController: BaseViewController {
         super.viewWillAppear(true)
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    // MARK: - private func
     // 初期画面設定
     private func initView() {
         // title 設定
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
 
-    // Startボタン タップ時
-    @IBAction func tappedStartBtn(_ sender: Any) {
-        // 人数がみ入力の場合
-        guard let numberStr = self.number, number != CommonWords.empty() else {
-            let okButton: UIAlertAction = UIAlertAction.init(title: CommonWords.ok(), style: .cancel, handler: nil)
-            let ac: UIAlertController = UIAlertController.init(title: CommonWords.empty(), message: CommonWords.explainNumber(), preferredStyle: .alert)
-            ac.addAction(okButton)
-            self.present(ac, animated: true, completion: nil)
-            return
-        }
+    // MARK: - @IBAction
+    @IBAction func onPercentButtonClicked(_ sender: UIButton) {
         
-        let numberOfPeople = Int(numberStr)
-        // nilチェック
-        guard let number = numberOfPeople else {
-            self.okBtnAlert(message: CommonWords.explainNumber())
-            return
-        }
-        
-        // 値の範囲 0<30
-        guard number > 0, number <= 30 else {
-            self.okBtnAlert(message: CommonWords.limitRangeNumber())
-            self.percentTextField.text = CommonWords.empty()
-            return
-        }
-        
-   //     let sb = UIStoryboard.init(name: "Play", bundle: nil)
-   //     let vc = sb.instantiateViewController(withIdentifier: "PlayViewController") as! PlayViewController
-     //   vc.number = number
-       // self.navigationController?.pushViewController(vc, animated: true)
+
+
     }
     
-    
+    @IBAction func onLotteryButtonTapped(_ sender: UIButton) {
+    }
 }
 
+// MARK: - extension UITextFieldDelegate
 extension MainViewController: UITextFieldDelegate {
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-
     private func addToolbar(textField: UITextField) {
         let toolbar = UIToolbar()
         toolbar.barStyle = UIBarStyle.default
