@@ -18,6 +18,8 @@ class PercentViewController: BaseViewController {
     /// 回す Button
     @IBOutlet weak var turnButton: UIButton!
     
+    /// 確率母数
+    var denominator: Int?
     
     // MARK: - override func
     override func viewDidLoad() {

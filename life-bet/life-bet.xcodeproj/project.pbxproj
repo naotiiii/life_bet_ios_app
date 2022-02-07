@@ -21,6 +21,7 @@
 		0A85A23A27A6B40500BE758C /* PercentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85A23927A6B40500BE758C /* PercentViewController.swift */; };
 		0A85A23D27AC072500BE758C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85A23C27AC072500BE758C /* UIColor+.swift */; };
 		0A85A23F27AC0DCD00BE758C /* NumberDecideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85A23E27AC0DCC00BE758C /* NumberDecideViewController.swift */; };
+		0A85A24127B1500800BE758C /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85A24027B1500800BE758C /* UIButton+.swift */; };
 		34B2A78FB3F60D1CE96EAC6C /* Pods_life_bet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524CCBBD39F444A1723DD668 /* Pods_life_bet.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		0A85A23927A6B40500BE758C /* PercentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentViewController.swift; sourceTree = "<group>"; };
 		0A85A23C27AC072500BE758C /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		0A85A23E27AC0DCC00BE758C /* NumberDecideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberDecideViewController.swift; sourceTree = "<group>"; };
+		0A85A24027B1500800BE758C /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		524CCBBD39F444A1723DD668 /* Pods_life_bet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_life_bet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD2E91D82DD7402CD4BC666 /* Pods-life-bet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-life-bet.release.xcconfig"; path = "Target Support Files/Pods-life-bet/Pods-life-bet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				0A85A23C27AC072500BE758C /* UIColor+.swift */,
+				0A85A24027B1500800BE758C /* UIButton+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				0A85A233279EDF8300BE758C /* BaseViewController.swift in Sources */,
 				0A85A23F27AC0DCD00BE758C /* NumberDecideViewController.swift in Sources */,
 				0A85A23A27A6B40500BE758C /* PercentViewController.swift in Sources */,
+				0A85A24127B1500800BE758C /* UIButton+.swift in Sources */,
 				0A85A203279EDE1900BE758C /* AppDelegate.swift in Sources */,
 				0A85A205279EDE1900BE758C /* SceneDelegate.swift in Sources */,
 				0A85A236279EE14800BE758C /* CommonWords.swift in Sources */,

@@ -25,6 +25,8 @@ class NumberDecideViewController: BaseViewController {
     
     // 抽選するボタン
     @IBOutlet weak var turnButton: UIButton!
+    
+    var number: Int?
 
     // MARK: - override func
     override func viewDidLoad() {
