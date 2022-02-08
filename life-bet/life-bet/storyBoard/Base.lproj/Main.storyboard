@@ -35,7 +35,6 @@
                                 <buttonConfiguration key="configuration" style="filled" title="確率"/>
                                 <connections>
                                     <action selector="onPercentButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HgY-uG-tSp"/>
-                                    <segue destination="eKY-b3-NLp" kind="show" identifier="segue_percent" id="uNu-hF-DB6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGf-QV-IXA">
@@ -48,7 +47,6 @@
                                 <buttonConfiguration key="configuration" style="filled" title="抽選"/>
                                 <connections>
                                     <action selector="onLotteryButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4WH-uZ-g4P"/>
-                                    <segue destination="1Ip-nd-BqP" kind="show" identifier="segue_lottery" id="YnI-kZ-pyz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -69,6 +67,8 @@
                         <outlet property="lotteryButton" destination="MGf-QV-IXA" id="8f9-Dt-wNS"/>
                         <outlet property="percentButton" destination="7D1-fL-n1I" id="6Q0-EO-5ru"/>
                         <outlet property="percentTextField" destination="uVs-sN-zsz" id="MVH-oZ-fxW"/>
+                        <segue destination="eKY-b3-NLp" kind="show" identifier="segue_percent" id="s84-Yt-XgU"/>
+                        <segue destination="1Ip-nd-BqP" kind="show" identifier="segue_lottery" id="KAz-dp-WGa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -139,6 +139,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="抽選する"/>
+                                <connections>
+                                    <action selector="onLotteryButtonTapped:" destination="1Ip-nd-BqP" eventType="touchUpInside" id="AE4-KM-RCH"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9S-OP-rzC">
                                 <rect key="frame" x="0.0" y="138" width="414" height="300"/>

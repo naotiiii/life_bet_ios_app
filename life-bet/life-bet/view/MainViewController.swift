@@ -71,7 +71,7 @@ class MainViewController: BaseViewController {
             }
         }
         
-        guard let percent = percentTextField.text else {
+        guard let percent = percentTextField.text, !percent.isEmpty else {
             /// テキストが空
             validateAlerat()
             return false
@@ -85,7 +85,10 @@ class MainViewController: BaseViewController {
                 return false
             }
 
-            if (20000 < intPercent) {
+            if 20000 < intPercent, type == .PERCENT {
+                validateAlerat()
+                return false
+            } else if 3000 < intPercent, type == .LOTTERY {
                 validateAlerat()
                 return false
             }

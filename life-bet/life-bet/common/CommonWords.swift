@@ -13,7 +13,7 @@ class CommonWords {
     public class func ok() -> String { return "OK" }
     public class func close() -> String { return "CLOSE"}
     public class func empty() -> String { return "" }
-    public class func backBtnTitle() -> String { return "back"}
+    public class func backBtnTitle() -> String { return "Back"}
     
     // MARK: - 広告
     // バナー広告
