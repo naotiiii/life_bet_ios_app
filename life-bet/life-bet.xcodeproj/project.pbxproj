@@ -22,6 +22,13 @@
 		0A85A23D27AC072500BE758C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85A23C27AC072500BE758C /* UIColor+.swift */; };
 		0A85A23F27AC0DCD00BE758C /* NumberDecideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85A23E27AC0DCC00BE758C /* NumberDecideViewController.swift */; };
 		0A85A24127B1500800BE758C /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85A24027B1500800BE758C /* UIButton+.swift */; };
+		0A85A24A27B50D2F00BE758C /* cut_sword.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A85A24327B50D2E00BE758C /* cut_sword.mp3 */; };
+		0A85A24B27B50D2F00BE758C /* incorrect_answer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A85A24427B50D2E00BE758C /* incorrect_answer.mp3 */; };
+		0A85A24C27B50D2F00BE758C /* cheers_and_applause.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A85A24527B50D2E00BE758C /* cheers_and_applause.mp3 */; };
+		0A85A24D27B50D2F00BE758C /* button_tap_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A85A24627B50D2E00BE758C /* button_tap_sound.mp3 */; };
+		0A85A24E27B50D2F00BE758C /* dragon_roar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A85A24727B50D2F00BE758C /* dragon_roar.mp3 */; };
+		0A85A24F27B50D2F00BE758C /* lightning_strike.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A85A24827B50D2F00BE758C /* lightning_strike.mp3 */; };
+		0A85A25027B50D2F00BE758C /* drum_roll.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A85A24927B50D2F00BE758C /* drum_roll.mp3 */; };
 		34B2A78FB3F60D1CE96EAC6C /* Pods_life_bet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524CCBBD39F444A1723DD668 /* Pods_life_bet.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +70,13 @@
 		0A85A23C27AC072500BE758C /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		0A85A23E27AC0DCC00BE758C /* NumberDecideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberDecideViewController.swift; sourceTree = "<group>"; };
 		0A85A24027B1500800BE758C /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		0A85A24327B50D2E00BE758C /* cut_sword.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cut_sword.mp3; sourceTree = "<group>"; };
+		0A85A24427B50D2E00BE758C /* incorrect_answer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = incorrect_answer.mp3; sourceTree = "<group>"; };
+		0A85A24527B50D2E00BE758C /* cheers_and_applause.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cheers_and_applause.mp3; sourceTree = "<group>"; };
+		0A85A24627B50D2E00BE758C /* button_tap_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button_tap_sound.mp3; sourceTree = "<group>"; };
+		0A85A24727B50D2F00BE758C /* dragon_roar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dragon_roar.mp3; sourceTree = "<group>"; };
+		0A85A24827B50D2F00BE758C /* lightning_strike.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lightning_strike.mp3; sourceTree = "<group>"; };
+		0A85A24927B50D2F00BE758C /* drum_roll.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drum_roll.mp3; sourceTree = "<group>"; };
 		524CCBBD39F444A1723DD668 /* Pods_life_bet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_life_bet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD2E91D82DD7402CD4BC666 /* Pods-life-bet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-life-bet.release.xcconfig"; path = "Target Support Files/Pods-life-bet/Pods-life-bet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +132,7 @@
 		0A85A201279EDE1900BE758C /* life-bet */ = {
 			isa = PBXGroup;
 			children = (
+				0A85A24227B50D0400BE758C /* sounds */,
 				0A85A23B27AC070400BE758C /* Extension */,
 				0A85A238279EE5CF00BE758C /* storyBoard */,
 				0A85A237279EE5B000BE758C /* view */,
@@ -182,6 +197,20 @@
 				0A85A24027B1500800BE758C /* UIButton+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		0A85A24227B50D0400BE758C /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				0A85A24627B50D2E00BE758C /* button_tap_sound.mp3 */,
+				0A85A24527B50D2E00BE758C /* cheers_and_applause.mp3 */,
+				0A85A24327B50D2E00BE758C /* cut_sword.mp3 */,
+				0A85A24727B50D2F00BE758C /* dragon_roar.mp3 */,
+				0A85A24927B50D2F00BE758C /* drum_roll.mp3 */,
+				0A85A24427B50D2E00BE758C /* incorrect_answer.mp3 */,
+				0A85A24827B50D2F00BE758C /* lightning_strike.mp3 */,
+			);
+			path = sounds;
 			sourceTree = "<group>";
 		};
 		7AC12DA2787788CDF0086F3A /* Frameworks */ = {
@@ -307,9 +336,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A85A24D27B50D2F00BE758C /* button_tap_sound.mp3 in Resources */,
 				0A85A20F279EDE1C00BE758C /* LaunchScreen.storyboard in Resources */,
+				0A85A24A27B50D2F00BE758C /* cut_sword.mp3 in Resources */,
+				0A85A24E27B50D2F00BE758C /* dragon_roar.mp3 in Resources */,
+				0A85A24F27B50D2F00BE758C /* lightning_strike.mp3 in Resources */,
+				0A85A24B27B50D2F00BE758C /* incorrect_answer.mp3 in Resources */,
 				0A85A20C279EDE1C00BE758C /* Assets.xcassets in Resources */,
 				0A85A20A279EDE1900BE758C /* Main.storyboard in Resources */,
+				0A85A24C27B50D2F00BE758C /* cheers_and_applause.mp3 in Resources */,
+				0A85A25027B50D2F00BE758C /* drum_roll.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

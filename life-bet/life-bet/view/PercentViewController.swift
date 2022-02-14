@@ -37,8 +37,7 @@ class PercentViewController: BaseViewController {
     /// 回すボタンタップ処理
     /// ボタン内で、指が離れた
     @IBAction func touchUpInsideTurnButton(_ sender: UIButton) {
-
-
+        turnButton.isSelected = true
     }
     
     /// ボタンに指が触れたら発生
@@ -47,12 +46,33 @@ class PercentViewController: BaseViewController {
         print("output number: \(num)")
         if num == hitNum {
             // 当たり
+            let num = Int.random(in: 0...10)
+            let startSound: String
+            if num < 7 {
+                startSound = StartCorrectSounnds.drum.rawValue
+            } else if num < 8 {
+                startSound = StartCorrectSounnds.dragon.rawValue
+            } else {
+                startSound = StartCorrectSounnds.thunder.rawValue
+            }
+            playSound(resource: startSound)
+            
+            sleep(2)
+            audioPlayer.stop()
+            let sound = correct.randomElement()?.rawValue ?? CorrectSounds.sword.rawValue
+            playSound(resource: sound)
             okBtnAlert(message: "アタリ")
         } else {
+            // ハズレ
+            let startSound = StartSounds.drum.rawValue
+            playSound(resource: startSound)
+            sleep(2)
+            audioPlayer.stop()
+            playSound(resource: "incorrect_answer")
             okBtnAlert(message: "ハズレ")
         }
+        turnButton.isSelected = false
     }
-
 
     ///
     func startAnimate() {

@@ -7,6 +7,30 @@
 
 import UIKit
 import GoogleMobileAds
+import AVFoundation
+
+/// 開始音
+enum StartSounds: String, CaseIterable {
+    case drum = "drum_roll"
+}
+
+/// 開始音 アタリ
+enum StartCorrectSounnds: String, CaseIterable {
+    case drum = "drum_roll"
+    case dragon = "dragon_roar"
+    case thunder = "lightning_strike"
+}
+
+/// 正解の音
+enum CorrectSounds: String, CaseIterable {
+    case applause = "cheers_and_applause"
+    case sword = "cut_sword"
+}
+
+/// 不正解音
+enum IncorrectSounds: String, CaseIterable {
+    case incorrect = "incorrect_answer"
+}
 
 /// BaseViewController
 class BaseViewController: UIViewController {
@@ -14,6 +38,15 @@ class BaseViewController: UIViewController {
     var bannerView: GADBannerView = GADBannerView()
     // Interstitial
     var interstitial: GADInterstitialAd?
+    
+    // sound player
+    var audioPlayer: AVAudioPlayer!
+    /// 開始音楽配列
+    let start: Array<StartSounds> = StartSounds.allCases
+    /// 正解音楽配列
+    let correct: Array<CorrectSounds> = CorrectSounds.allCases
+    /// 不正解音楽配列
+    let inCorrect: Array<IncorrectSounds> = IncorrectSounds.allCases
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +65,9 @@ class BaseViewController: UIViewController {
         present(ac, animated: true, completion: nil)
     }
     
-    // バーナ広告の設定
-    //
-    //
+    /// バーナ広告の設定
+    ///
+    ///
     public func setBottomBannerView() {
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
         bannerView.frame.origin = CGPoint(x: 0, y: self.view.frame.size.height - self.bannerView.frame.height)
@@ -51,9 +84,9 @@ class BaseViewController: UIViewController {
         self.view.addSubview(bannerView)
     }
     
-    // インタースティシャル広告の設定
-    //
-    //
+    /// インタースティシャル広告の設定
+    ///
+    ///
     public func setInterstitialView() {
         let request = GADRequest()
         var advertiseID: String = CommonWords.intersitialID()
@@ -68,6 +101,29 @@ class BaseViewController: UIViewController {
                 self.interstitial = ad
                 self.interstitial?.fullScreenContentDelegate = self
             }
+        }
+    }
+}
+
+// MARK: - extension AVAudioPlayerDelegate
+extension BaseViewController: AVAudioPlayerDelegate {
+    
+    /// サウンド再生
+    ///
+    /// - Parameters resource
+    func playSound(resource: String) {
+        guard let path = Bundle.main.path(forResource: resource, ofType: "mp3") else {
+            print("Nothing Sound File")
+            return
+        }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+            audioPlayer.delegate = self
+            
+            audioPlayer.play()
+        } catch {
+            print("Nothing Sound File")
         }
     }
 }
