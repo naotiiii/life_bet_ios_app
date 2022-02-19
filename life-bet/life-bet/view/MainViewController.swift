@@ -17,24 +17,40 @@ class MainViewController: BaseViewController {
 
     
     // MARK: - IBOutlet
-    // 数字を入力する TextField
+    /// imageView
+    @IBOutlet weak var lifeBetIcon: UIImageView! {
+        didSet {
+            lifeBetIcon.image = UIImage(named: "img_icon")
+        }
+    }
+
+    /// タイトル label
+    @IBOutlet weak var lifeBetLabel: UILabel!
+    /// マネータイプ SegmentControl
+    @IBOutlet weak var moneyTypeSegment: UISegmentedControl! {
+        didSet {
+            moneyTypeSegment.isHidden = true
+        }
+    }
+    
+    /// 数字を入力する TextField
     @IBOutlet weak var percentTextField: UITextField!
-    // percentButton
+    /// percentButton
     @IBOutlet weak var percentButton: UIButton!
-    // 抽選ボタン
+    /// 抽選ボタン
     @IBOutlet weak var lotteryButton: UIButton!
-    // 入力値
+    /// 入力値
     var number: String?
     
     // MARK: - override func
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.setBottomBannerView()
-        self.initView()
+        self.setBottomBannerView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.initView()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -54,10 +70,26 @@ class MainViewController: BaseViewController {
     }
     
     // MARK: - private func
-    // 初期画面設定
+    /// 初期画面設定
     private func initView() {
+        // ボタン角丸設定
+        circleButton(button: percentButton)
+        circleButton(button: lotteryButton)
+        
+        // キーボード設定
+        percentTextField.keyboardType = .numberPad
+        
         // title 設定
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+    }
+    
+    /// アニメーション処理
+    private func startAnimation() {
+        UIView.animate(withDuration: 3, delay: 0, options: .transitionFlipFromLeft) {
+            
+        } completion: { _ in
+            
+        }
     }
     
     /// 入力フィールドチェック

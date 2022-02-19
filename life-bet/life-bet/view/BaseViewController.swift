@@ -48,6 +48,7 @@ class BaseViewController: UIViewController {
     /// 不正解音楽配列
     let inCorrect: Array<IncorrectSounds> = IncorrectSounds.allCases
     
+    // MARK: - override func
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backButtonTitle = CommonWords.backBtnTitle()
@@ -57,12 +58,25 @@ class BaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
     }
-    
+        
+    // MARK: - function
+
+    /// OKボタンアラート
+    ///
+    /// - Parameters message メッセージ
     public func okBtnAlert(message: String) {
         let okBtn: UIAlertAction = UIAlertAction.init(title: CommonWords.ok(), style: .default, handler: nil)
         let ac: UIAlertController = UIAlertController.init(title: CommonWords.empty(), message: message, preferredStyle: .alert)
         ac.addAction(okBtn)
         present(ac, animated: true, completion: nil)
+    }
+    
+    /// 丸ボタン
+    ///
+    /// - Parameters button UIButton
+    public func circleButton(button: UIButton) {
+        button.layer.cornerRadius = button.bounds.width/2
+        button.layer.masksToBounds = true
     }
     
     /// バーナ広告の設定

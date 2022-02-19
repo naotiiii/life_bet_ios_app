@@ -50,6 +50,9 @@ class NumberDecideViewController: BaseViewController {
     // MARK: - override func
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setBottomBannerView()
+        circleButton(button: turnButton)
 
         if number == nil {
             navigationController?.popViewController(animated: true)
