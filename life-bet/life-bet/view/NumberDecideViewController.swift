@@ -84,10 +84,7 @@ class NumberDecideViewController: BaseViewController {
     @IBAction func onLotteryButtonTapped(_ sender: UIButton) {
         startAnimation()
         if let outputNumnber = numArray.randomElement() {
-            var startSound = StartSounds.drum.rawValue
-            if outputNumnber == 1 {
-                startSound = StartCorrectSounnds.thunder.rawValue
-            }
+            let startSound = StartSounds.drum.rawValue
             playSound(resource: startSound)
             
             sleep(2)
@@ -99,6 +96,20 @@ class NumberDecideViewController: BaseViewController {
             hundredNumberLabel.text = String(strArray[1])
             tenNumberLabel.text = String(strArray[2])
             oneNumberLabel.text = String(strArray[3])
+            
+            // アタリの音を流す
+            if outputNumnber == 1 {
+                // キュイン
+                playSound(resource: SpecialCorrectSounds.kyuin.rawValue)
+            } else if outputNumnber <= 3 {
+                // シャキン
+                playSound(resource: SpecialCorrectSounds.syakin.rawValue)
+            } else if outputNumnber <= 10 {
+                let random = Int.random(in: 0...(correct.count - 1))
+                playSound(resource: correct[random].rawValue)
+            } else {
+                playSound(resource: ResultSounds.do_don.rawValue)
+            }
 
             // 既に表示した番号を削除
             if let index = numArray.firstIndex(of: outputNumnber) {
@@ -116,7 +127,7 @@ class NumberDecideViewController: BaseViewController {
         }
     }
     
-    
+    /// 文字表示のアニメーション
     func startAnimation() {
         UIView.animate(withDuration: 1.0, delay: 0.0, options: [.transitionFlipFromRight]) {
             self.thousandNumberLabel.alpha = 1
@@ -127,6 +138,7 @@ class NumberDecideViewController: BaseViewController {
             
         }
     }
+    
     
     
     func setLabelAlpha() {

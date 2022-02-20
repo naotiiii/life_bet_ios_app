@@ -25,11 +25,24 @@ enum StartCorrectSounnds: String, CaseIterable {
 enum CorrectSounds: String, CaseIterable {
     case applause = "cheers_and_applause"
     case sword = "cut_sword"
+    case yeah = "yeah"
 }
 
 /// 不正解音
 enum IncorrectSounds: String, CaseIterable {
     case incorrect = "incorrect_answer"
+}
+
+/// 特別な正解の音
+enum SpecialCorrectSounds: String, CaseIterable {
+    case kyuin = "kyuin"
+    case syakin = "syakin"
+}
+
+/// 結果の音
+enum ResultSounds: String, CaseIterable {
+    case do_don = "do_don"
+    case don = "don"
 }
 
 /// BaseViewController
@@ -47,6 +60,10 @@ class BaseViewController: UIViewController {
     let correct: Array<CorrectSounds> = CorrectSounds.allCases
     /// 不正解音楽配列
     let inCorrect: Array<IncorrectSounds> = IncorrectSounds.allCases
+    /// 特別正解音
+    let correctSpecial: Array<SpecialCorrectSounds> = SpecialCorrectSounds.allCases
+    /// 結果音
+    let resultSounds: Array<ResultSounds> = ResultSounds.allCases
     
     // MARK: - override func
     override func viewDidLoad() {

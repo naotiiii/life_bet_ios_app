@@ -66,7 +66,6 @@ class PercentViewController: BaseViewController {
     /// ボタン内で、指が離れた
     @IBAction func touchUpInsideTurnButton(_ sender: UIButton) {
         turnButton.isEnabled = false
-        specialHitNumberAnimate()
         let num = Int.random(in: 1...denominator!)
         print("output number: \(num)")
         if num == hitNum {
@@ -85,22 +84,32 @@ class PercentViewController: BaseViewController {
         
     /// 当たりの時の処理
     func processHitNumber() {
-      //  specialHitNumberAnimate()
         // 当たり
         let num = Int.random(in: 0...10)
         let startSound: String
-        if num < 8 {
+        if num < 7 {
             startSound = StartCorrectSounnds.drum.rawValue
-        } else if num < 8 {
+        } else if num < 9 {
             startSound = StartCorrectSounnds.dragon.rawValue
         } else {
             startSound = StartCorrectSounnds.thunder.rawValue
         }
+        
+        // スペシャルアタリ
+        specialHitNumberAnimate()
         playSound(resource: startSound)
         
         sleep(2)
-        let sound = correct.randomElement()?.rawValue ?? CorrectSounds.sword.rawValue
+        var sound = correct.randomElement()?.rawValue ?? CorrectSounds.sword.rawValue
+        if num == 7 || num == 8 {
+            sound = SpecialCorrectSounds.syakin.rawValue
+        } else if num == 9 || num == 10 {
+            sound = SpecialCorrectSounds.kyuin.rawValue
+        }
+        
         playSound(resource: sound)
+        
+        turnImageView.stopAnimating()
         
         resultLabel.text = CommonWords.numberHit()
         turnButton.isEnabled = true
@@ -113,23 +122,18 @@ class PercentViewController: BaseViewController {
 
         sleep(2)
         resultLabel.text = CommonWords.numberLost()
-        usualyStartAnimate()
         playSound(resource: "incorrect_answer")
         turnButton.isEnabled = true
     }
 
-    /// 通常の当たり時のアニメーション
-    func usualyStartAnimate() {
-//        UIView.animate(withDuration: 1.0, delay: 0, options: .transitionFlipFromRight) {
-//            self.turnImageView.alpha = 1
-//        } completion: { _ in
-//        }
-    }
-    
     /// 特別なアタリ
     func specialHitNumberAnimate() {
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.transitionFlipFromRight]) {
-            self.resultLabel.alpha = 1
+        turnImageView.animationImages = [
+            UIImage(named: "img_icon")!,
+            UIImage(named: "img_white")!]
+        turnImageView.animationDuration = 0.2
+        UIView.animate(withDuration: 1, delay: 0, options: .transitionCurlUp) {
+            self.turnImageView.startAnimating()
         } completion: { _ in
             
         }
