@@ -15,8 +15,9 @@ enum GameType {
 /// MainViewContorller
 class MainViewController: BaseViewController {
 
-    
     // MARK: - IBOutlet
+    /// GearButton
+    @IBOutlet weak var settingButton: UIBarButtonItem!
     /// imageView
     @IBOutlet weak var lifeBetIcon: UIImageView! {
         didSet {
@@ -30,6 +31,7 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var moneyTypeSegment: UISegmentedControl! {
         didSet {
             moneyTypeSegment.isHidden = true
+            moneyTypeSegment.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         }
     }
     
@@ -62,6 +64,7 @@ class MainViewController: BaseViewController {
         if segue.identifier == "segue_percent" {
             let percent = segue.destination as? PercentViewController
             percent?.denominator = Int(percentTextField.text!)
+            percent?.playType = PlayType.allCases[moneyTypeSegment.selectedSegmentIndex]
         }
         else if segue.identifier == "segue_lottery" {
             let lottery = segue.destination as? NumberDecideViewController

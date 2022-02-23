@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A728E2627C6412A00E37AF5 /* SettingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A728E2527C6412A00E37AF5 /* SettingInfo.swift */; };
+		0A728E2827C642F100E37AF5 /* UserDefault+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A728E2727C642F100E37AF5 /* UserDefault+.swift */; };
 		0A85A203279EDE1900BE758C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85A202279EDE1900BE758C /* AppDelegate.swift */; };
 		0A85A205279EDE1900BE758C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85A204279EDE1900BE758C /* SceneDelegate.swift */; };
 		0A85A207279EDE1900BE758C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85A206279EDE1900BE758C /* MainViewController.swift */; };
@@ -34,6 +36,7 @@
 		0A85A25927C25E0700BE758C /* don.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A85A25627C25E0700BE758C /* don.mp3 */; };
 		0A85A25A27C25E0700BE758C /* do_don.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A85A25727C25E0700BE758C /* do_don.mp3 */; };
 		0A85A25C27C25F9E00BE758C /* syakin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A85A25B27C25F9E00BE758C /* syakin.mp3 */; };
+		0A85A25E27C61DD000BE758C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A85A25D27C61DCF00BE758C /* SettingViewController.swift */; };
 		34B2A78FB3F60D1CE96EAC6C /* Pods_life_bet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524CCBBD39F444A1723DD668 /* Pods_life_bet.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +59,8 @@
 
 /* Begin PBXFileReference section */
 		058362ACF0AA162A9E5B3FB1 /* Pods-life-bet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-life-bet.debug.xcconfig"; path = "Target Support Files/Pods-life-bet/Pods-life-bet.debug.xcconfig"; sourceTree = "<group>"; };
+		0A728E2527C6412A00E37AF5 /* SettingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingInfo.swift; sourceTree = "<group>"; };
+		0A728E2727C642F100E37AF5 /* UserDefault+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+.swift"; sourceTree = "<group>"; };
 		0A85A1FF279EDE1900BE758C /* life-bet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "life-bet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A85A202279EDE1900BE758C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A85A204279EDE1900BE758C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +92,7 @@
 		0A85A25627C25E0700BE758C /* don.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = don.mp3; sourceTree = "<group>"; };
 		0A85A25727C25E0700BE758C /* do_don.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = do_don.mp3; sourceTree = "<group>"; };
 		0A85A25B27C25F9E00BE758C /* syakin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = syakin.mp3; sourceTree = "<group>"; };
+		0A85A25D27C61DCF00BE758C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		524CCBBD39F444A1723DD668 /* Pods_life_bet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_life_bet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD2E91D82DD7402CD4BC666 /* Pods-life-bet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-life-bet.release.xcconfig"; path = "Target Support Files/Pods-life-bet/Pods-life-bet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A728E2427C6411900E37AF5 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				0A728E2527C6412A00E37AF5 /* SettingInfo.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		0A85A1F6279EDE1900BE758C = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +156,7 @@
 		0A85A201279EDE1900BE758C /* life-bet */ = {
 			isa = PBXGroup;
 			children = (
+				0A728E2427C6411900E37AF5 /* model */,
 				0A85A24227B50D0400BE758C /* sounds */,
 				0A85A23B27AC070400BE758C /* Extension */,
 				0A85A238279EE5CF00BE758C /* storyBoard */,
@@ -188,6 +203,7 @@
 				0A85A206279EDE1900BE758C /* MainViewController.swift */,
 				0A85A23927A6B40500BE758C /* PercentViewController.swift */,
 				0A85A23E27AC0DCC00BE758C /* NumberDecideViewController.swift */,
+				0A85A25D27C61DCF00BE758C /* SettingViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -205,6 +221,7 @@
 			children = (
 				0A85A23C27AC072500BE758C /* UIColor+.swift */,
 				0A85A24027B1500800BE758C /* UIButton+.swift */,
+				0A728E2727C642F100E37AF5 /* UserDefault+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -434,9 +451,12 @@
 			files = (
 				0A85A207279EDE1900BE758C /* MainViewController.swift in Sources */,
 				0A85A233279EDF8300BE758C /* BaseViewController.swift in Sources */,
+				0A728E2627C6412A00E37AF5 /* SettingInfo.swift in Sources */,
 				0A85A23F27AC0DCD00BE758C /* NumberDecideViewController.swift in Sources */,
+				0A728E2827C642F100E37AF5 /* UserDefault+.swift in Sources */,
 				0A85A23A27A6B40500BE758C /* PercentViewController.swift in Sources */,
 				0A85A24127B1500800BE758C /* UIButton+.swift in Sources */,
+				0A85A25E27C61DD000BE758C /* SettingViewController.swift in Sources */,
 				0A85A203279EDE1900BE758C /* AppDelegate.swift in Sources */,
 				0A85A205279EDE1900BE758C /* SceneDelegate.swift in Sources */,
 				0A85A236279EE14800BE758C /* CommonWords.swift in Sources */,

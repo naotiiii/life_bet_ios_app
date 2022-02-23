@@ -32,7 +32,10 @@ class CommonWords {
     public class func numberLost() -> String { return "ハズレ" }
     public class func numberHit() -> String { return "アタリ" }
 
-
-
+    
+    // SettingView
+    public class func settingSlo() -> String { return "20円・5円 1000円当たりの回転率"}
+    public class func settingPati() -> String { return "4円・1円 1000円あたりの回転数"}
+    
     
 }
