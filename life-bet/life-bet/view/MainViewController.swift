@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AdSupport
+import AppTrackingTransparency
 
 enum GameType {
     case PERCENT
@@ -47,7 +49,14 @@ class MainViewController: BaseViewController {
     // MARK: - override func
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setBottomBannerView()
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization { _ in
+                self.setBottomBannerView()
+            }
+        } else {
+            // Fallback on earlier versions
+            self.setBottomBannerView()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -145,6 +154,28 @@ class MainViewController: BaseViewController {
     @IBAction func onLotteryButtonTapped(_ sender: UIButton) {
         if validateText(type: .LOTTERY) {
             performSegue(withIdentifier: "segue_lottery", sender: nil)
+        }
+    }
+}
+
+// MARK: - extension 広告
+extension MainViewController {
+    
+    func showAdvertisingTracking() {
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization { _ in
+                
+            }
+
+            switch ATTrackingManager.trackingAuthorizationStatus {
+            case .authorized:
+                print("ASIdentifierManager.shared().advertisingIdentifier: \(ASIdentifierManager.shared().advertisingIdentifier)")
+                break
+            case .notDetermined:
+                break
+            default:
+                fatalError()
+            }
         }
     }
 }
