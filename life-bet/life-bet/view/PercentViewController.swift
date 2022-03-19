@@ -20,6 +20,10 @@ class PercentViewController: BaseViewController {
 
     // MARK: - @IBOutlet
     @IBOutlet weak var percentLabel: UILabel!
+    /// 試行回数 Label
+    @IBOutlet weak var numberOfTrialsLabel: UILabel!
+    /// 当たり回数 Label
+    @IBOutlet weak var hitCountLabel: UILabel!
     
     /// アニメーション View
     @IBOutlet weak var animationView: UIView!
@@ -49,6 +53,11 @@ class PercentViewController: BaseViewController {
     /// 固定で当たり番号付与
     final let hitNum = 1
     
+    /// 回転数
+    var trialCount = 0
+    /// アタリ回数
+    var hitCount = 0
+
     /// 当たったかどうか
     var isCorrect = false
     
@@ -56,7 +65,8 @@ class PercentViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setBottomBannerView()
+        setBottomBannerView()
+        setInterstitialView()
         circleButton(button: turnButton)
         
         if denominator == nil {
@@ -66,21 +76,34 @@ class PercentViewController: BaseViewController {
         let percent: Double = 100.00000 / Double(denominator!)
         print("percent: \(percent)")
         print("percent: \(100 / 200)")
-
-        percentLabel.text = "\(denominator!)分の1 (\(percent)%の確率)"
+        
+        let percentStr = String(format: "%.2f", percent)
+        percentLabel.text = "\(denominator!)分の1 (\(percentStr)%の確率)"
+        numberOfTrialsLabel.text = "\(trialCount)回"
+        hitCountLabel.text = "\(hitCount)回"
     }
     
     // MARK: - @IBOutlet
     /// 回すボタンタップ処理
     /// ボタン内で、指が離れた
     @IBAction func touchUpInsideTurnButton(_ sender: UIButton) {
+        trialCount += 1
         if isCorrect {
             // アタリ
             processHitNumber()
+            hitCount += 1
         } else {
             // ハズレ
             processLostNumber()
+            if trialCount == 2 {
+                if interstitial != nil {
+                    interstitial?.present(fromRootViewController: self)
+                }                
+            }
         }
+        // 回数更新表示
+        numberOfTrialsLabel.text = "\(trialCount)回"
+        hitCountLabel.text = "\(hitCount)回"
     }
     
     /// ボタンに指が触れたら発生

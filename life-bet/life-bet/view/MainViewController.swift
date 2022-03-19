@@ -129,7 +129,7 @@ class MainViewController: BaseViewController {
                 return false
             }
 
-            if 20000 < intPercent, type == .PERCENT {
+            if 200000 < intPercent, type == .PERCENT {
                 validateAlerat()
                 return false
             } else if 3000 < intPercent, type == .LOTTERY {
