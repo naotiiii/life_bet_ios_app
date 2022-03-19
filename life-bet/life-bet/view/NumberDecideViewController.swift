@@ -46,6 +46,9 @@ class NumberDecideViewController: BaseViewController {
     
     // 抽選番号 配列
     var numArray: [Int] = []
+    
+    /// 広告表示カウント
+    var interstitialCount = 0
 
     // MARK: - override func
     override func viewDidLoad() {
@@ -82,6 +85,7 @@ class NumberDecideViewController: BaseViewController {
     ///
     /// - Parameters ボタン
     @IBAction func onLotteryButtonTapped(_ sender: UIButton) {
+        interstitialCount += 1
         startAnimation()
         if let outputNumnber = numArray.randomElement() {
             let startSound = StartSounds.drum.rawValue
@@ -124,6 +128,12 @@ class NumberDecideViewController: BaseViewController {
             }
             ac.addAction(button)
             present(ac, animated: true, completion: nil)
+        }
+        if interstitialCount == 10 {
+            if interstitial != nil {
+                interstitial?.present(fromRootViewController: self)
+            }
+            interstitialCount = 0
         }
     }
     

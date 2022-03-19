@@ -57,6 +57,8 @@ class PercentViewController: BaseViewController {
     var trialCount = 0
     /// アタリ回数
     var hitCount = 0
+    /// 広告表示回数
+    var interstitialCount = 0
 
     /// 当たったかどうか
     var isCorrect = false
@@ -88,6 +90,7 @@ class PercentViewController: BaseViewController {
     /// ボタン内で、指が離れた
     @IBAction func touchUpInsideTurnButton(_ sender: UIButton) {
         trialCount += 1
+        interstitialCount += 1
         if isCorrect {
             // アタリ
             processHitNumber()
@@ -95,10 +98,12 @@ class PercentViewController: BaseViewController {
         } else {
             // ハズレ
             processLostNumber()
-            if trialCount == 2 {
+            
+            if interstitialCount == 10 {
                 if interstitial != nil {
                     interstitial?.present(fromRootViewController: self)
-                }                
+                }
+                interstitialCount = 0
             }
         }
         // 回数更新表示
