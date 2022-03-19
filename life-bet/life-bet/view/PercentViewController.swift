@@ -74,12 +74,11 @@ class PercentViewController: BaseViewController {
         if denominator == nil {
             navigationController?.popViewController(animated: true)
         }
-    
-        let percent: Double = 100.00000 / Double(denominator!)
-        print("percent: \(percent)")
-        print("percent: \(100 / 200)")
         
-        let percentStr = String(format: "%.2f", percent)
+        let percent: Double = 100 / Double(denominator!)
+        print("percent: \(percent)")
+        
+        let percentStr = String(format: "%.4f", percent)
         percentLabel.text = "\(denominator!)分の1 (\(percentStr)%の確率)"
         numberOfTrialsLabel.text = "\(trialCount)回"
         hitCountLabel.text = "\(hitCount)回"
