@@ -25,7 +25,7 @@ class CommonWords {
     
     
     // MainView
-    public class func emptyValidationPercent() -> String { return "1~200000の範囲の数字で入力してください。"}
+    public class func emptyValidationPercent() -> String { return "1~240000の範囲の数字で入力してください。"}
     public class func emptyValidationLottery() -> String { return "1~3000の範囲の数字で入力してください。"}
     
     // PlayView
