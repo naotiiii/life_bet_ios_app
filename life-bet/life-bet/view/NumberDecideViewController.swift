@@ -78,6 +78,8 @@ class NumberDecideViewController: BaseViewController {
         setLabelAlpha()
         
         turnButton.isSelected = true
+        let startSound = StartSounds.drum.rawValue
+        playSound(resource: startSound)
        // playSound(resource: StartSounds.tap_button.rawValue)
     }
 
@@ -86,54 +88,57 @@ class NumberDecideViewController: BaseViewController {
     /// - Parameters ボタン
     @IBAction func onLotteryButtonTapped(_ sender: UIButton) {
         interstitialCount += 1
-        startAnimation()
-        if let outputNumnber = numArray.randomElement() {
-            let startSound = StartSounds.drum.rawValue
-            playSound(resource: startSound)
-            
-            sleep(2)
-            audioPlayer.stop()
-
-            let strNum = String(format: "%04d", outputNumnber)
-            let strArray = Array(strNum)
-            thousandNumberLabel.text = String(strArray[0])
-            hundredNumberLabel.text = String(strArray[1])
-            tenNumberLabel.text = String(strArray[2])
-            oneNumberLabel.text = String(strArray[3])
-            
-            // アタリの音を流す
-            if outputNumnber == 1 {
-                // キュイン
-                playSound(resource: SpecialCorrectSounds.kyuin.rawValue)
-            } else if outputNumnber <= 3 {
-                // シャキン
-                playSound(resource: SpecialCorrectSounds.syakin.rawValue)
-            } else if outputNumnber <= 10 {
-                let random = Int.random(in: 0...(correct.count - 1))
-                playSound(resource: correct[random].rawValue)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.startAnimation()
+            if let outputNumnber = self.numArray.randomElement() {
+                self.showNumber(outputNumnber: outputNumnber)
             } else {
-                playSound(resource: ResultSounds.do_don.rawValue)
+                /// 番号を全て表示した時
+                let ac = UIAlertController(title: "", message: "全ての番号が出ました。", preferredStyle: .alert)
+                let button = UIAlertAction(title: CommonWords.backBtnTitle(), style: .cancel) { _ in
+                    self.navigationController?.popViewController(animated: true)
+                }
+                ac.addAction(button)
+                self.present(ac, animated: true, completion: nil)
             }
-
-            // 既に表示した番号を削除
-            if let index = numArray.firstIndex(of: outputNumnber) {
-                print("delete index: \(index)")
-                numArray.remove(at: index)
+            if self.interstitialCount == 10 {
+                if self.interstitial != nil {
+                    self.interstitial?.present(fromRootViewController: self)
+                }
+                self.interstitialCount = 0
             }
-        } else {
-            /// 番号を全て表示した時
-            let ac = UIAlertController(title: "", message: "全ての番号が出ました。", preferredStyle: .alert)
-            let button = UIAlertAction(title: CommonWords.backBtnTitle(), style: .cancel) { _ in
-                self.navigationController?.popViewController(animated: true)
-            }
-            ac.addAction(button)
-            present(ac, animated: true, completion: nil)
         }
-        if interstitialCount == 10 {
-            if interstitial != nil {
-                interstitial?.present(fromRootViewController: self)
-            }
-            interstitialCount = 0
+    }
+    
+    /// 番号表示
+    func showNumber(outputNumnber: Int) {
+        audioPlayer.stop()
+        let strNum = String(format: "%04d", outputNumnber)
+        let strArray = Array(strNum)
+        thousandNumberLabel.text = String(strArray[0])
+        hundredNumberLabel.text = String(strArray[1])
+        tenNumberLabel.text = String(strArray[2])
+        oneNumberLabel.text = String(strArray[3])
+        
+        // アタリの音を流す
+        if outputNumnber == 1 {
+            // キュイン
+            playSound(resource: SpecialCorrectSounds.kyuin.rawValue)
+        } else if outputNumnber <= 3 {
+            // シャキン
+            playSound(resource: SpecialCorrectSounds.syakin.rawValue)
+        } else if outputNumnber <= 10 {
+            let random = Int.random(in: 0...(correct.count - 1))
+            playSound(resource: correct[random].rawValue)
+        } else {
+            playSound(resource: ResultSounds.do_don.rawValue)
+        }
+        
+        // 既に表示した番号を削除
+        if let index = numArray.firstIndex(of: outputNumnber) {
+            print("delete index: \(index)")
+            numArray.remove(at: index)
         }
     }
     

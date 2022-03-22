@@ -141,29 +141,36 @@ class PercentViewController: BaseViewController {
     /// 当たりの時の処理
     func processHitNumber() {
         // スペシャルアタリ
-        sleep(2)
+
         var sound = correct.randomElement()?.rawValue ?? CorrectSounds.sword.rawValue
         let num = Int.random(in: 0...10)
-        if num == 7 || num == 8 {
-            sound = SpecialCorrectSounds.syakin.rawValue
-        } else if num == 9 || num == 10 {
-            sound = SpecialCorrectSounds.kyuin.rawValue
-            specialHitNumberAnimate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            if num == 7 || num == 8 {
+                sound = SpecialCorrectSounds.syakin.rawValue
+                self.playSound(resource: sound)
+            } else if num == 9 || num == 10 {
+                sound = SpecialCorrectSounds.kyuin.rawValue
+                self.playSound(resource: sound)
+                self.specialHitNumberAnimate()
+            } else {
+                self.playSound(resource: sound)
+            }
+            
+            self.resultLabel.text = CommonWords.numberHit()
+            self.startAnimationLabel()
+            self.turnButton.isEnabled = true
         }
-        playSound(resource: sound)
-        
-        resultLabel.text = CommonWords.numberHit()
-        startAnimationLabel()
-        turnButton.isEnabled = true
     }
     
     /// ハズレの時の処理
     func processLostNumber() {
-        sleep(2)
-        resultLabel.text = CommonWords.numberLost()
-        startAnimationLabel()
-        playSound(resource: "incorrect_answer")
-        turnButton.isEnabled = true
+        //audioPlayer.stop()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.resultLabel.text = CommonWords.numberLost()
+            self.startAnimationLabel()
+            self.playSound(resource: "incorrect_answer")
+            self.turnButton.isEnabled = true
+        }
     }
     
     /// ラベル表示
